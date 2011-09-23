@@ -6,22 +6,21 @@ functions = [
   function(){return 3}
 ]
 
-boilerplate = function a(b,c,d,e,f){8//8KIBI_METHODS8
-for(b=(a+a).split(8,KIBI_COUNT),c=2;d=b[c++];)eval("this."+(c+18).toString(36)+"="+b[0]+d+"}")}
+source = fs.readFileSync("./src/kibi.js", "utf8")
+html = fs.readFileSync("./src/index.html", "utf8")
 
-source = new Buffer(kibify(functions))
+source = source
+  .replace("KIBI_COUNT", functions.length + 2)
+  .replace("KIBI_METHODS", functions
+    .map(function(x){ return (x+"").match(/{(.*)}/)[1]})
+    .join(8)
+  )
 
-fs.writeFile("./kibi.js", source, function(err) {
-  if (err) throw err
+html = html
+  .replace("KIBI_SOURCE", source)
 
-  console.log("kibi.js built successfully.")
-  console.log("total size: %s bytes", source.length)
-})
+fs.writeFileSync("./kibi.js", source)
+fs.writeFileSync("./index.html", html)
 
-function kibify(args) {
-  args = args.map(function(x){ return (x+"").match(/{(.*)}/)[1] })
-
-  return ("kibi=new " + boilerplate)
-    .replace("KIBI_METHODS", args.join(8))
-    .replace("KIBI_COUNT", args.length + 2)
-}
+console.log("kibi.js built successfully.")
+console.log("total size: %s bytes", Buffer.byteLength(source))
