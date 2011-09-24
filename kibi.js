@@ -1,2 +1,1 @@
-kibi=new function a(b,c,d,e,f){b=this;8//8return 18return 28return 38
-for(c=(a+a).split(8,5),d=2;e=c[d++];)eval("b."+(d+18).toString(36)+"="+c[0]+e+"}")}
+!function(l,k,w,d,b,i,j){for(w in k)l=l.replace(RegExp(k[w][0],"g"),k[w].slice(1));eval(l)}("l={}) {w=k=top;k;k=k||k)  d inb=i=0;j=d.charCodeAt(bi%=934)i+=b*j;l[(i+360).toString(36)]=d}d=wb=di=0 j =ibi};.fetchb[cr](d[e5]('script')).src=x+(z=ja+i	f f(x	y(x};k.templatefx.replace(/#{([^}]*/g,f(x,eF(\"x\",\"x)\"+e).call||y||{}}}","(c,d++);[eq][fk])}; k	w[z]=with(zfor(){   return  = f f(x,y,unction".split(""))

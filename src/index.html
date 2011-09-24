@@ -5,5 +5,13 @@
 </script>
 
 <script>KIBI_SOURCE</script>
+
+<script>
+  kibi.fetch(
+    "https://api.github.com/users/jed?callback=",
+    function(x){console.log(x)}
+  )
+
+</script>
 </body>
 </html>
