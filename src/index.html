@@ -27,7 +27,9 @@
   <h1>Welcome to kibi.js.</h1>
   <p>This will eventually be a template.</p>
 
-  <p>The date is #{new Date}.</p>
+  <p>The date is <% new Date %>.</p>
+
+  <p>Your lang is <% navigator.language %>.</p>
 
   <p>See the <a href="#about">about<a> page.</p>
   <p>This is an <a href="#FAKELINK">intentionally broken link</a>.</p>
@@ -36,11 +38,11 @@
 <script
   type="text/kibi"
   data-pathname="#about$"
-  data-location="https://api.github.com/users/140bytes?_=#{+new Date}&amp;callback=">
+  data-location="https://api.github.com/users/140bytes?<% +new Date %>&callback=">
 
   <h1>This is the about page.</h1>
 
-  <p>140byt.es has #{this.data.followers} followers on github.</p>
+  <p>140byt.es has <% this.data.followers %> followers on github.</p>
 </script>
 
 <script

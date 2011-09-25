@@ -14,7 +14,7 @@ with(o=function(a,b,c,d,e){
   o.L=o.I=o.C=0;
 
   o.T=function(a,b,c,d,e){
-    return a[bw](/#{([^}]*)}/g, function(a,c){
+    return a[bw](/<%(.*?)%>/g, function(a,c){
       return Function('return '+c).call(b)
     })
   };
