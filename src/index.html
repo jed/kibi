@@ -1,17 +1,33 @@
 <html>
 <body>
-<script type="kibi/template" data-route="^/$">
-  Welcome to kibi.js. This will eventually be a template.
+
+<script
+  type="text/kibi"
+  data-pathname="^/$">
+  <h1>Welcome to kibi.js.</h1>
+  <p>This will eventually be a template.</p>
+
+  <p>The date is #{new Date}.</p>
+
+  <p>See the <a href="#about">about<a> page.</p>
+  <p>This is an <a href="#FAKELINK">intentionally broken link</a>.</p>
+</script>
+
+<script
+  type="text/kibi"
+  data-pathname="#about$"
+  data-location="https://api.github.com/users/140bytes?callback=">
+  <h1>This is the about page.</h1>
+
+  <p>140byt.es has #{this.data.followers} followers on github.</p>
+</script>
+
+<script type="text/kibi">
+  <h1>Not found.</h1>
+  <!--#{setTimeout('location=\'/\'',2000)}-->
 </script>
 
 <script>KIBI_SOURCE</script>
 
-<script>
-  kibi.fetch(
-    "https://api.github.com/users/jed?callback=",
-    function(x){console.log(x)}
-  )
-
-</script>
 </body>
 </html>
