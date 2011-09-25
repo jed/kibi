@@ -1,9 +1,29 @@
 <html>
+<head>
+  <meta charset='utf-8'>
+
+  <style>
+    #kibionload {
+      position:fixed;
+      width:100%;
+      height:100%;
+      background-color:#000;
+      opacity:.5;
+      color:#fff;
+      font-size:200px;
+      text-align:center;
+      line-height:500px;
+      top:0;
+      left:0;
+    }
+  </style>
+</head>
 <body>
 
 <script
   type="text/kibi"
   data-pathname="^/$">
+
   <h1>Welcome to kibi.js.</h1>
   <p>This will eventually be a template.</p>
 
@@ -16,13 +36,16 @@
 <script
   type="text/kibi"
   data-pathname="#about$"
-  data-location="https://api.github.com/users/140bytes?callback=">
+  data-location="https://api.github.com/users/140bytes?_=#{+new Date}&amp;callback=">
+
   <h1>This is the about page.</h1>
 
   <p>140byt.es has #{this.data.followers} followers on github.</p>
 </script>
 
-<script type="text/kibi">
+<script
+  type="text/kibi">
+
   <h1>Not found.</h1>
   <!--#{setTimeout('location=\'/\'',2000)}-->
 </script>

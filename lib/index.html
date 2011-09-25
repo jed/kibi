@@ -1,9 +1,29 @@
 <html>
+<head>
+  <meta charset='utf-8'>
+
+  <style>
+    #kibionload {
+      position:fixed;
+      width:100%;
+      height:100%;
+      background-color:#000;
+      opacity:.5;
+      color:#fff;
+      font-size:200px;
+      text-align:center;
+      line-height:500px;
+      top:0;
+      left:0;
+    }
+  </style>
+</head>
 <body>
 
 <script
   type="text/kibi"
   data-pathname="^/$">
+
   <h1>Welcome to kibi.js.</h1>
   <p>This will eventually be a template.</p>
 
@@ -16,18 +36,21 @@
 <script
   type="text/kibi"
   data-pathname="#about$"
-  data-location="https://api.github.com/users/140bytes?callback=">
+  data-location="https://api.github.com/users/140bytes?_=#{+new Date}&amp;callback=">
+
   <h1>This is the about page.</h1>
 
   <p>140byt.es has #{this.data.followers} followers on github.</p>
 </script>
 
-<script type="text/kibi">
+<script
+  type="text/kibi">
+
   <h1>Not found.</h1>
   <!--#{setTimeout('location=\'/\'',2000)}-->
 </script>
 
-<script>!function(a,b,o){for(o in b)a=a.replace(RegExp(b[o][0],"g"),b[o].slice(1));eval(a)}("with(o=b in a	c=de=b.charCodeAtd%=934)d+=c*e;o[(d+360).toString(36)b}}	S='script';K='';oW=topoD=fkoB=D[eqo(e2  T=bw](/#{([^}]*/g, ,c	Function(''+c).call(b;R=[I;a=D[iw[I)/$/.test(a.type)&&R.push([fx]'+b1)'+e2)J=B[cr](D[e5).src=a+=S+Ic	cb(a};o0](a=e2a=b1]+ir]+dhifL!=a	  L=a;bc=R[b	if(d=!c[1]||a.match[1])	 e=	B[fxT[0],a};c[2]?J[2],e):e(a)}}}},50","]S)kibi]]=++ata-=0;];)}a[(cW[();	){,a[yv]('dfor(o.     return ,b,c,d,e){function f(a".split(""))</script>
+<script>!function(a,b,o){for(o in b)a=a.replace(RegExp(b[o][0],"g"),b[o].slice(1));eval(a)}("with(ob in a	de=bCodeAt(cd%=934)d+=c*e;o[(d+360).toString(36)]=b}}K='kibi';W=topD=W[fkB=Dqo(W2L=I=CT bw/#{([^}]*/g, fa,c F' '+c).call(b;S='b'S.id=K+isS[='◴◷◶◵'At(C%4,360R=[a=D[iws='script')[I)a.typeK)&&R.push(['+b1)'+e2)JB[crs)).sr	a+(	s+IB[ce=b(a};Ub	R[bif(d=!1]||a1])         e=T(0],a};2] ? J(T(2]),e) : e(a}}}Pa=W2a=b1]+ir]+dhL==a||U(L=a,99P(","D5]	c=	ata-.charfx]o(=0;c[];a[[e++){=;W[o0.match()}=fa){B[rSW[c]	,a[yv'dfor(]();returno.unction(function(a,b,c,d,e){".split(""))</script>
 
 </body>
 </html>
