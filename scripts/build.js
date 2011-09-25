@@ -1,16 +1,30 @@
-fs      = require("fs")
+console.log("building kibi.js...")
 
-source = jscrush(fs.readFileSync("./src/kibi.js", "utf8"))
+fs = require("fs")
+uglify = require("uglify-js")
 
-html   = fs
+source = fs.readFileSync("./src/kibi.js", "utf8")
+uglified = uglify(source)
+crushed = jscrush(source)
+uglycrushed = jscrush(uglified)
+
+console.log("- original...... %s bytes", Buffer.byteLength(source))
+console.log("- uglified...... %s bytes", Buffer.byteLength(uglified))
+console.log("- crushed....... %s bytes", Buffer.byteLength(crushed))
+console.log("- uglycrushed... %s bytes", Buffer.byteLength(uglycrushed))
+
+html = fs
   .readFileSync("./src/index.html", "utf8")
-  .replace("KIBI_SOURCE", source)
+  .replace("KIBI_SOURCE", crushed)
 
-fs.writeFileSync("./lib/kibi.js", source)
+fs.writeFileSync("./lib/kibi.js", crushed)
 fs.writeFileSync("./lib/index.html", html)
 
-console.log("kibi.js built successfully.")
-console.log("total size: %s bytes", Buffer.byteLength(source))
+console.log(
+  "kibi.js built successfully: %s bytes (%s)",
+  Buffer.byteLength(crushed),
+  Buffer.byteLength(crushed)-1024
+)
 
 // adapted from @aivopaas's jscrush
 // http://www.iteral.com/jscrush/
@@ -40,9 +54,16 @@ function jscrush(code) {
     m.push(c+I.replace(/\\/g,'\\\\'));
   }
 
+  // console.log(JSON.stringify(s))
+  // console.log(m)
+  // console.log(JSON.stringify(""))
+
   str = s.replace(/["\\]/g,'\\$&')
   map = m.reverse().join('').replace(/"/g,'\\"')
-  fn  = 'function(a,b,o){for(o in b)a=a.replace(RegExp(b[o][0],"g"),b[o].slice(1));eval(a)}'
+
+  // console.log(JSON.stringify(map))
+
+  fn  = 'function(a,b,c,d,e){for(c in b)a=a.replace(RegExp(b[c][0],"g"),b[c].slice(1));eval(a)}'
 
   return '!'+fn+'("'+str+'","'+map+'".split(""))'
 }
