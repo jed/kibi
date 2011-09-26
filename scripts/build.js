@@ -63,7 +63,6 @@ function jscrush(code) {
 
   // console.log(JSON.stringify(map))
 
-  fn  = 'function(a,b,c,d,e){for(c in b)a=a.replace(RegExp(b[c][0],"g"),b[c].slice(1));eval(a)}'
-
-  return '!'+fn+'("'+str+'","'+map+'".split(""))'
+  return '!function(a,b,c){for(c in b)a=a.replace(RegExp(b[c][0],"g"),b[c].slice(1));eval(a)}' +
+         '("' + str + '","' + map + '".split(""))'
 }

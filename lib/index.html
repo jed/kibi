@@ -6,14 +6,11 @@
       #kibionload {
         position:fixed;
         width:100%;
-        height:100%;
-        background-color:#000;
-        opacity:.3;
+        background-color:rgba(0,0,0,.3);
         color:#fff;
-        font-size:200px;
-        text-align:center;
-        line-height:500px;
-        top:0;
+        font-size:3em;
+        overflow:hidden;
+        bottom:0;
         left:0;
       }
 
@@ -22,31 +19,43 @@
         font-size: 100px;
       }
 
-      body {
-        text-align:center;
-      }
     </style>
 
     <link href='http://fonts.googleapis.com/css?family=Paytone+One' rel='stylesheet' type='text/css'>
 
-    <script
-      type="text/kibi"
-      data-pathname="^/$">
+    <script type="text/plain"
+      data-kibi="true"
+      data-kibi-pathname="^/$">
 
       <h1>kibi.js</h1>
+
+      <ul>
+        <li><a href="/collaborators">collaborators</a></li>
+        <li><a href="/commits">commits</a></li>
+        <li><a href="/watchers">watchers</a></li>
+        <li><a href="/issues">issues</a></li>
+      </ul>
 
       <p>The time is <% (new Date).toLocaleTimeString() %>.</p>
 
       <p>Your lang is <% navigator.language %>.</p>
 
       <p>See the <a href="/about" data-kibi="true">about<a> page.</p>
-      <p>This is an <a href="#FAKELINK">intentionally broken link</a>.</p>
+      <p>This is an <a href="/FAKELINK" data-kibi="true">intentionally broken link</a>.</p>
     </script>
 
-    <script
-      type="text/kibi"
-      data-pathname="^/about$"
-      data-location="https://api.github.com/users/140bytes?_=<% +new Date %>&callback=">
+    <script type="text/plain"
+      data-kibi="true"
+      data-kibi-pathname="^/watchers"
+      data-kibi-location="https://api.github.com/repos/jed/fab/watchers?callback=">
+
+      <% JSON.stringify(this) %>
+    </script>
+
+    <script type="text/plain"
+      data-kibi="true"
+      data-kibi-pathname="^/about$"
+      data-kibi-location="https://api.github.com/users/140bytes?_=<% +new Date %>&callback=">
 
       <h1>This is the about page.</h1>
 
@@ -55,14 +64,14 @@
       <pre><% JSON.stringify(this) %></pre>
     </script>
 
-    <script
-      type="text/kibi">
+    <script type="text/plain"
+      data-kibi="true">
 
       <h1>Not found.</h1>
       <!--<% setTimeout(function(){location='/'},2000) %>-->
     </script>
   </head>
   <body>
-    <script>!function(a,b,c,d,e){for(c in b)a=a.replace(RegExp(b[c][0],"g"),b[c].slice(1));eval(a)}("with(=ob in adeCodeAt(c#d%=934)d+=c*e;o[(d+3607toString(36)]}}W=topD=fk]B=q]H=lb]o(A=bs&&Hs];B.onclicka=(a||u6]7target;a)b8[yv	'href'A?Hs	0,0,b):.hash;!1}L=I=CT aw	/<%(.*?)%>/g, fa,c F' '+c7call(b)S=5	'b'S.id=''+is;@S='◴◷◶◵'At(C#%4,360JB[cr	5	)7sra+(+I#B[c[e(aUbD[iw	)#];)c.type'')d=c+b1!d||ad)b=c;c+e2e=T(b,ac?J(T(c),e):e(a}}@Pa=;a81]+a[ir]+a[dh];L=8||U(L8,99P(","@o0	8=a7).#++=b.charif(D[e=0;)}};[bc==faB=.match(r	Sc][fx]e2]for(kibio(){W[	](o.'script');returnunction([yv]('data-'function(a,b,c,d,e){".split(""))</script>
+    <script>!function(a,b,c){for(c in b)a=a.replace(RegExp(b[c][0],"g"),b[c].slice(1));eval(a)}("with(=oc in ade=c.charCodeAt(d++a%=934)a+=d*e;b[+360toString(36)]=c}}o(W=top	D=fk]	Beq]	H=lb]	,oB.onclicka=||u6]target;ifb[yv'href'H[bs]?Hs0,0,b):.hash=b;!1;}L=I=CT aw/<%(.*?)%>/g, ,c F' '+ccall(b)Se5'b'S.id=''+is;JD[e5)src+(c=+I++SSsetTimeout(fB[erSb,2000Ubciw)++];)if(cdb1if(!d||a.match(d)b=c;ce2e=B=T(b,ac?J(T(c),e):e}}o0PS+a=1]+[ir];L=||U(L,50P(","c]=')kibi[b).='|';B[crfa=D[=0;)}};(a=a=c-'+W[for(){[fx]](W[e2]	,oo(o.'script');returnunction([yv]('data-kibi=function(a,b,c,d,e){".split(""))</script>
   </body>
 </html>
