@@ -1,4 +1,77 @@
-kibi = new function() {
+<html>
+  <head>
+    <meta charset='utf-8'>
+
+    <style>
+      #kibi {
+        position:fixed;
+        width:100%;
+        background-color:rgba(0,0,0,.3);
+        color:#fff;
+        font-size:3em;
+        overflow:hidden;
+        bottom:0;
+        left:0;
+      }
+
+      h1 {
+        font-family: 'Paytone One', sans-serif;
+        font-size: 100px;
+      }
+
+    </style>
+
+    <link href='http://fonts.googleapis.com/css?family=Paytone+One' rel='stylesheet' type='text/css'>
+
+    <script type='text/plain' data-kibi='{ pathname: /^\/$/ }'>
+
+      <h1>kibi.js</h1>
+
+      <ul>
+        <li><a href="/collaborators">collaborators</a></li>
+        <li><a href="/commits">commits</a></li>
+        <li><a href="/watchers" data-kibi="true">watchers</a></li>
+        <li><a href="/issues">issues</a></li>
+      </ul>
+
+      <p>The time is <% (new Date).toLocaleTimeString() %>.</p>
+
+      <p>Your lang is <% navigator.language %>.</p>
+
+      <p>See the <a href="/about" data-kibi="true">about<a> page.</p>
+      <p>This is an <a href="/FAKELINK" data-kibi="true">intentionally broken link</a>.</p>
+    </script>
+
+    <script type='text/plain' data-kibi='{
+      pathname: /^\/watchers/,
+      location: "https://api.github.com/repos/jed/fab/watchers?callback="
+    }'>
+
+      <% JSON.stringify(this) %>
+    </script>
+
+    <script type='text/plain' data-kibi='{
+      pathname: /^\/about/,
+      location: "https://api.github.com/users/140bytes?callback="
+    }'>
+
+      <h1>This is the about page.</h1>
+
+      <p>140byt.es has <% this.data.followers %> followers on github.</p>
+
+      <pre><% JSON.stringify(this) %></pre>
+    </script>
+
+    <script type='text/plain' data-kibi='{
+      pathname: /.*/,
+    }'>
+
+      <h1>Not found.</h1>
+      <!--<% setTimeout(function(){location='/'},2000) %>-->
+    </script>
+  </head>
+  <body>
+    <script>kibi = new function() {
   var body = document.body
     , onclick = document.onclick
     , guid = 0
@@ -87,4 +160,6 @@ kibi = new function() {
 
     currentUrl == url || update(currentUrl = url)
   }
-}
+}</script>
+  </body>
+</html>

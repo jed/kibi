@@ -2,7 +2,7 @@ fs   = require("fs")
 http = require("http")
 
 server = http.createServer(function(req, res) {
-  fs.readFile("./lib/index.html", function(err, html) {
+  fs.readFile("./lib/html/uglycrushed/index.html", function(err, html) {
     res.writeHead(200, {
       "Content-Type": "text/html",
       "Content-Length": html.length
