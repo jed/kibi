@@ -2,7 +2,7 @@
   "author": "Jed Schmidt <tr@nslator.jp> (http://jed.is)",
   "name": "kibi",
   "description": "a single-page javascript app framework in 1,024 bytes",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "repository": {
     "type": "git",
     "url": "git://github.com/jed/kibi.git"
@@ -11,5 +11,8 @@
     "node": "~v0.4.12"
   },
   "dependencies": {},
-  "devDependencies": {}
+  "devDependencies": {},
+  "scripts": {
+    "start": "node server.js"
+  }
 }
