@@ -11,7 +11,9 @@
     "node": "~v0.4.12"
   },
   "dependencies": {},
-  "devDependencies": {},
+  "devDependencies": {
+    "uglify-js": "*"
+  },
   "scripts": {
     "start": "node server.js"
   }
