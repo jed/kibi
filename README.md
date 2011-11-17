@@ -1,24 +1,24 @@
-kibi.js
+kibi
 =======
 
 Goal
 ----
 
-An easy-to-use single-page app framework in 1,024 bytes of JavaScript. kibi.js currently weighs in about 200 bytes less, so there's still room for improvement.
+An easy-to-use single-page app framework in 1,024 bytes of JavaScript. kibi currently weighs in about 200 bytes less, so there's still room for improvement. You can see it an action [on heroku](http://kibi.herokuapp.com/).
 
 Background
 ----------
 
-kibi.js was inspired by running [140byt.es](http://140byt.es). Having learned so much about tuning tiny code, I figured I would take code golfing to its logical extreme, and create the tiniest web framework possible.
+kibi was inspired by running [140byt.es](http://140byt.es). Having learned so much about tuning tiny code, I figured I would take code golfing to its logical extreme, and create the tiniest web framework possible.
 
-I intentionally planned to release kibi.js at [JSConf.eu '11](http://jsconf.eu), but unfortunately, ran out of time and had to scale back my slides. But I did write some interesting code, and wanted to share it.
+I intentionally planned to release kibi at [JSConf.eu '11](http://jsconf.eu), but unfortunately, ran out of time and had to scale back my slides. But I did write some interesting code, and wanted to share it.
 
 This repo is a snapshot of what I had built, published as an exploration of the cool things still possible with very little code. If you'd like to develop it yourself, please feel free to take over this fork!
 
 Features
 --------
 
-Right now, kibi.js includes:
+Right now, kibi includes:
 
 - a template engine,
 - a router,
@@ -26,16 +26,16 @@ Right now, kibi.js includes:
 - a page load indicator, and
 - pushState support.
 
-Building a kibi.js app
+Building a kibi app
 ----------------------
 
-kibi.js apps are declarative, and consist of several named/routed templates, each of which lives in its own script tag. When kibi.js loads, it parses every script tag with a `data-kibi` attribute into its own template. The `data-kibi` attribute should be set to a loose JSON object with the following keys:
+kibi apps are declarative, and consist of several named/routed templates, each of which lives in its own script tag. When kibi loads, it parses every script tag with a `data-kibi` attribute into its own template. The `data-kibi` attribute should be set to a loose JSON object with the following keys:
 
 - `pathname` (optional): a regular expression. when this is matched, the template is rendered to the page body.
 - `id` (optional): a string. this allows templates to be called from within other templates by name, on the global `kibi.template` object.
 - `location` (optional): a JSONP url. when a template with a location is rendered, it is rendered using the data returned from the url. pretty neat, eh?
 
-A kibi.js app should have this structure:
+A kibi app should have this structure:
 
 ```html
 <html>
@@ -64,8 +64,8 @@ A kibi.js app should have this structure:
   <h1>Not found.</h1>
 </script>
 
-<!-- load kibi.js last to make sure it can find everything -->
-<script><!-- inlined kibi.js source code--></script>
+<!-- load kibi last to make sure it can find everything -->
+<script><!-- inlined kibi source code--></script>
 </html>
 ```
 
@@ -89,6 +89,15 @@ To build kibi and the demo, enter:
     $ node ./tools/build.js
 
 from the root of the project.
+
+Building will take a few seconds, and show you the size of the library after compression like this:
+
+building kibi.js...
+- raw: 2089 bytes
+- uglified: 1124 bytes
+- crushed: 1013 bytes
+- uglycrushed: 840 bytes
+kibi.js built successfully: 840 bytes (-184)
 
 License
 -------
