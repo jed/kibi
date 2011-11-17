@@ -45,12 +45,12 @@
 
     <script type='text/plain' data-kibi='{
       pathname: /^\/watchers/,
-      location: "https://api.github.com/repos/jed/fab/watchers?callback="
+      location: "https://api.github.com/repos/jed/kibi/watchers?callback="
     }'>
 
       <h1>kibi is being watched!</h1>
 
-      <p>The following are just some of the people watching kibi.</p>
+      <p>The following are just some of the <%= this.data.length %> people watching kibi.</p>
 
       <ul>
         <% this.data.map(kibi.template.watcher).join("") %>
@@ -69,7 +69,7 @@
 
     <script type='text/plain' data-kibi='{
       pathname: /^\/about/,
-      location: "https://api.github.com/repos/jed/fab?callback="
+      location: "https://api.github.com/repos/jed/kibi?callback="
     }'>
 
       <h1>This is the about page.</h1>

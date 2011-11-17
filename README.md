@@ -92,12 +92,12 @@ from the root of the project.
 
 Building will take a few seconds, and show you the size of the library after compression like this:
 
-building kibi.js...
-- raw: 2089 bytes
-- uglified: 1124 bytes
-- crushed: 1013 bytes
-- uglycrushed: 840 bytes
-kibi.js built successfully: 840 bytes (-184)
+    building kibi.js...
+    - raw: 2089 bytes
+    - uglified: 1124 bytes
+    - crushed: 1013 bytes
+    - uglycrushed: 840 bytes
+    kibi.js built successfully: 840 bytes (-184)
 
 License
 -------
