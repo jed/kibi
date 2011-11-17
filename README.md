@@ -22,7 +22,7 @@ Background
 
 kibi was inspired by running [140byt.es](http://140byt.es). Having learned so much about tuning tiny code, I figured I would take code golfing to its logical extreme, and create the tiniest web framework possible.
 
-I intentionally planned to release kibi at [JSConf.eu '11](http://jsconf.eu), but unfortunately, ran out of time and had to scale back my slides. But I did write some interesting code, and wanted to share it.
+I initially planned to release kibi at [JSConf.eu '11](http://jsconf.eu), but unfortunately, ran out of time and had to scale back my slides. But I did write some interesting code, and wanted to share it.
 
 This repo is a snapshot of what I had built, published as an exploration of the cool things still possible with very little code. If you'd like to develop it yourself, please feel free to take over this fork!
 
@@ -34,7 +34,7 @@ Originally, I thought I could take all the [byte-pinching knowlege](https://gith
 But you know what? It turns out that all those little operator hacks pale in comparison to a higher-level approach to compression. Above several hundred bytes, it pays more to write very consistent code over very hand-optimized code, and then run it through [uglify](http://marijnhaverbeke.nl/uglifyjs), and then [jscrush](http://www.iteral.com/jscrush/). Using these two libraries can cut code size in half, assuming you code as regularly as possible to maximize compression, such as by using local variables instead of properties, and reusing property names wherever possible.
 
 Building a kibi app
-----------------------
+-------------------
 
 kibi apps are declarative, and consist of several named/routed templates, each of which lives in its own script tag. When kibi loads, it parses every script tag with a `data-kibi` attribute into its own template. The `data-kibi` attribute should be set to a loose JSON object with the following keys:
 
