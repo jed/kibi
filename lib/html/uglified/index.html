@@ -3,6 +3,11 @@
     <meta charset='utf-8'>
 
     <style>
+      body {
+        font-family: sans-serif;
+        font-size: 150%;
+      }
+
       #kibi {
         position:fixed;
         width:100%;
@@ -15,7 +20,7 @@
       }
 
       h1 {
-        font-family: 'Paytone One', sans-serif;
+        font-family: 'Paytone One', serif;
         font-size: 100px;
       }
 
@@ -27,18 +32,14 @@
 
       <h1>kibi.js</h1>
 
-      <ul>
-        <li><a href="/collaborators">collaborators</a></li>
-        <li><a href="/commits">commits</a></li>
-        <li><a href="/watchers" data-kibi="true">watchers</a></li>
-        <li><a href="/issues">issues</a></li>
-      </ul>
-
       <p>The time is <% (new Date).toLocaleTimeString() %>.</p>
 
       <p>Your lang is <% navigator.language %>.</p>
 
-      <p>See the <a href="/about" data-kibi="true">about<a> page.</p>
+      <p>Learn more <a href="/about" data-kibi="true">about kibi</a>.</p>
+
+      <p>See <a href="/watchers" data-kibi="true">who is watching kibi</a>.</p>
+
       <p>This is an <a href="/FAKELINK" data-kibi="true">intentionally broken link</a>.</p>
     </script>
 
@@ -47,19 +48,38 @@
       location: "https://api.github.com/repos/jed/fab/watchers?callback="
     }'>
 
-      <% JSON.stringify(this) %>
+      <h1>kibi is being watched!</h1>
+
+      <p>The following are just some of the people watching kibi.</p>
+
+      <ul>
+        <% this.data.map(kibi.template.watcher).join("") %>
+      </ul>
+    </script>
+
+    <script type='text/plain' data-kibi='{
+      id: "watcher"
+    }'>
+
+      <li>
+        <img src="<% this.avatar_url %>">
+        <a href="<% this.url %>"><% this.login %></a>
+      </li>
     </script>
 
     <script type='text/plain' data-kibi='{
       pathname: /^\/about/,
-      location: "https://api.github.com/users/140bytes?callback="
+      location: "https://api.github.com/repos/jed/fab?callback="
     }'>
 
       <h1>This is the about page.</h1>
 
-      <p>140byt.es has <% this.data.followers %> followers on github.</p>
+      <p>
+        kibi has <% this.data.watchers %> watchers on github.
+        See more about them <a href="/watchers" data-kibi="true">here</a>.
+      </p>
 
-      <pre><% JSON.stringify(this) %></pre>
+      <p>(Oh, and by the way, you only have <% this.meta["X-RateLimit-Remaining"] %> more chances to view this page. Reload if you are skeptical.)</p>
     </script>
 
     <script type='text/plain' data-kibi='{
@@ -71,6 +91,6 @@
     </script>
   </head>
   <body>
-    <script>kibi=new function(){function j(b){a.innerHTML=i.innerHTML(b)}function k(a){for(d=0;i=f[d++];)console.log(i)}function l(a){return function(b){return a.replace(/<%(.*?)%>/g,function(a,c){return Function('return '+c).call(b)})}}function m(b,d){a.appendChild(document.createElement('script')).src=b+(b='script'+c++),a.appendChild(e),e.innerHTML='|',window[b]=function(c){a.removeChild(e),window[b]=d(c)}}function n(){e.innerHTML+='|';var a=location.pathname+location.search;g==a||k(g=a)}var a=document.body,b=document.onclick,c=0,d,e=document.createElement('b'),f=[],g,h,i;e.id='kibi',this.template=l;for(d=0;h=document.getElementsByTagName('script')[d++];)if(i=Function('return '+h.getAttribute('data-kibi'))())i.template=l(h.innerHTML),l[i.id]=f[c++]=i;document.onclick=function(a){b(a),a=(a||event).target;if(a.getAttribute('data-kibi'))return a=a.getAttribute('href'),history.pushState?history.pushState(0,0,a):location.hash='!'+a,!1},n(setInterval(n,50))}</script>
+    <script>kibi=new function(){function j(b){console.log(i),a.innerHTML=i.template(b)}function k(a){for(d=0;i=f[d++];){console.log(i);if(h=a.match(i.pathname))return i.location?m(i.location,j):j(h)}}function l(a){return function(b){return a.replace(/<%(.*?)%>/g,function(a,c){return Function('return '+c).call(b)})}}function m(b,d){a.appendChild(document.createElement('script')).src=b+(b='script'+c++),a.appendChild(e),e.innerHTML='|',window[b]=function(c){a.removeChild(e),window[b]=d(c)}}function n(){e.innerHTML+='|';var a=location.pathname+location.search;!history.pushState&&location.hash.match(/^#/)&&(a=location.hash.slice(1)),g==a||k(g=a)}var a=document.body,b=document.onclick,c=0,d,e=document.createElement('b'),f=[],g,h,i;e.id='kibi',this.template=l;for(d=0;h=document.getElementsByTagName('script')[d++];)if(i=Function('return '+h.getAttribute('data-kibi'))())l[i.id]=i.template=l(h.innerHTML),i.pathname&&(f[c++]=i);document.onclick=function(a){b(a),a=(a||event).target;if(a.getAttribute('data-kibi'))return a=a.getAttribute('href'),history.pushState?history.pushState(0,0,a):location.hash='!'+a,!1},n(setInterval(n,50))}</script>
   </body>
 </html>

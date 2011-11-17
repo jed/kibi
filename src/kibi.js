@@ -16,8 +16,8 @@ kibi = new function() {
 
   for (i = 0; currentMatch = document.getElementsByTagName('script')[i++];) {
     if (currentRoute = Function('return ' + currentMatch.getAttribute('data-kibi'))()){
-      currentRoute.template = template(currentMatch.innerHTML)
-      template[currentRoute.id] = routes[guid++] = currentRoute
+      template[currentRoute.id] = currentRoute.template = template(currentMatch.innerHTML)
+      if (currentRoute.pathname) routes[guid++] = currentRoute
     }
   }
 
@@ -40,18 +40,19 @@ kibi = new function() {
   poll(setInterval(poll,50))
 
   function display(data) {
-    body.innerHTML = currentRoute.innerHTML(data)
+    console.log(currentRoute)
+    body.innerHTML = currentRoute.template(data)
   }
 
   function update(url) {
     for (i = 0; currentRoute = routes[i++];) {
       console.log(currentRoute);
 
-      // if (currentMatch = url.match(currentRoute.pathname)){
-      //   return currentRoute.location
-      //     ? jsonp(currentRoute.location, display)
-      //     : display(currentMatch)
-      // }
+      if (currentMatch = url.match(currentRoute.pathname)){
+        return currentRoute.location
+          ? jsonp(currentRoute.location, display)
+          : display(currentMatch)
+      }
     }
   }
 
@@ -81,9 +82,9 @@ kibi = new function() {
     loader.innerHTML += '|'
     var url = location.pathname + location.search
 
-    // if (!history.pushState && location.hash.match(/^#/)) {
-    //   url = location.hash.slice(1)
-    // }
+    if (!history.pushState && location.hash.match(/^#/)) {
+      url = location.hash.slice(1)
+    }
 
     currentUrl == url || update(currentUrl = url)
   }

@@ -1,10 +1,7 @@
 {
   "author": "Jed Schmidt <tr@nslator.jp> (http://jed.is)",
-  "contributors": [
-    { "name": "Alex Kloss", "url": "https://github.com/atk" }
-  ],
   "name": "kibi",
-  "description": "an single-page javascript app framework in <1,024 bytes",
+  "description": "a single-page javascript app framework in 1,024 bytes",
   "version": "0.0.0",
   "repository": {
     "type": "git",
