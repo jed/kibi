@@ -40,14 +40,11 @@ kibi = new function() {
   poll(setInterval(poll,50))
 
   function display(data) {
-    console.log(currentRoute)
     body.innerHTML = currentRoute.template(data)
   }
 
   function update(url) {
     for (i = 0; currentRoute = routes[i++];) {
-      console.log(currentRoute);
-
       if (currentMatch = url.match(currentRoute.pathname)){
         return currentRoute.location
           ? jsonp(currentRoute.location, display)

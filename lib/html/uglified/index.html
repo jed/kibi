@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset='utf-8'>
@@ -91,6 +92,6 @@
     </script>
   </head>
   <body>
-    <script>kibi=new function(){function j(b){console.log(i),a.innerHTML=i.template(b)}function k(a){for(d=0;i=f[d++];){console.log(i);if(h=a.match(i.pathname))return i.location?m(i.location,j):j(h)}}function l(a){return function(b){return a.replace(/<%(.*?)%>/g,function(a,c){return Function('return '+c).call(b)})}}function m(b,d){a.appendChild(document.createElement('script')).src=b+(b='script'+c++),a.appendChild(e),e.innerHTML='|',window[b]=function(c){a.removeChild(e),window[b]=d(c)}}function n(){e.innerHTML+='|';var a=location.pathname+location.search;!history.pushState&&location.hash.match(/^#/)&&(a=location.hash.slice(1)),g==a||k(g=a)}var a=document.body,b=document.onclick,c=0,d,e=document.createElement('b'),f=[],g,h,i;e.id='kibi',this.template=l;for(d=0;h=document.getElementsByTagName('script')[d++];)if(i=Function('return '+h.getAttribute('data-kibi'))())l[i.id]=i.template=l(h.innerHTML),i.pathname&&(f[c++]=i);document.onclick=function(a){b(a),a=(a||event).target;if(a.getAttribute('data-kibi'))return a=a.getAttribute('href'),history.pushState?history.pushState(0,0,a):location.hash='!'+a,!1},n(setInterval(n,50))}</script>
+    <script>kibi=new function(){function j(b){a.innerHTML=i.template(b)}function k(a){for(d=0;i=f[d++];)if(h=a.match(i.pathname))return i.location?m(i.location,j):j(h)}function l(a){return function(b){return a.replace(/<%(.*?)%>/g,function(a,c){return Function('return '+c).call(b)})}}function m(b,d){a.appendChild(document.createElement('script')).src=b+(b='script'+c++),a.appendChild(e),e.innerHTML='|',window[b]=function(c){a.removeChild(e),window[b]=d(c)}}function n(){e.innerHTML+='|';var a=location.pathname+location.search;!history.pushState&&location.hash.match(/^#/)&&(a=location.hash.slice(1)),g==a||k(g=a)}var a=document.body,b=document.onclick,c=0,d,e=document.createElement('b'),f=[],g,h,i;e.id='kibi',this.template=l;for(d=0;h=document.getElementsByTagName('script')[d++];)if(i=Function('return '+h.getAttribute('data-kibi'))())l[i.id]=i.template=l(h.innerHTML),i.pathname&&(f[c++]=i);document.onclick=function(a){b(a),a=(a||event).target;if(a.getAttribute('data-kibi'))return a=a.getAttribute('href'),history.pushState?history.pushState(0,0,a):location.hash='!'+a,!1},n(setInterval(n,50))}</script>
   </body>
 </html>
