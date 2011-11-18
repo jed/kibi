@@ -22,7 +22,7 @@ kibi = new function() {
   }
 
   document.onclick=function(e) {
-    onclick(e)
+    if(onclick) onclick(e)
 
     e = (e || event).target
 
